@@ -5,19 +5,19 @@ class ConsultaController {
         this._inputData = $('#data');
         this._inputPeso = $('#peso');
         this._inputAltura = $('#altura');
+        this._listaConsulta = new ListaConsultas();
+        this._consulta
         }
 
-    adiciona(event) {
+    adiciona(evento) {
         evento.preventDefault();
-     let consulta = new Consulta (
-       this._inputNome.value,
-       new Date (this._inputData.value.split('-')),
-       this._inputPeso.value,
-       this._inputAltura.value
-        );
+     let consulta = this._criaConsulta();
+     this._listaConsulta.adiciona(consulta);
+     this._limpaFormulario();
 
-     console.log (this._inputData.value);
-     console.log (consulta);
+     //console.log (this._inputData.value);
+     //console.log (consulta);
+    }
 
     _criaConsulta() {
         return new Consulta(
